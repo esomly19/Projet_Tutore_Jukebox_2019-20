@@ -41,7 +41,7 @@ $container['db'] = function ($container) use ($capsule) {
 
 
 $app->get('/', function(Request $request, Response $response, $args){
-    return $this->view->render($response, 'Accueil.html.twig');
+    return $this->view->render($response, 'accueil.html.twig');
 })->setName('accueil');;
 
 $app->get('/createPlaylist', "\\app\\Controllers\\controller:createPlaylist")->setName('createPlaylist');
