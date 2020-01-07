@@ -8,16 +8,16 @@ class controller{
         $this->container = $container;
     }
     public function checkPlaylist($request, $response){
-  return $this->container->view->render($response, "utilisateur/checkPlaylist.html.twig",["ladhesion"=>$listeAdhesion]);
+  return $this->container->view->render($response, "checkPlaylist.html.twig");
     }
         public function createPlaylist($request, $response){
-  return $this->container->view->render($response, "utilisateur/createPlaylist.html.twig",["ladhesion"=>$listeAdhesion]);
+  return $this->container->view->render($response, "createPlaylist.html.twig");
     }
         public function checkJukeboxt($request, $response){
-  return $this->container->view->render($response, "utilisateur/Listeadhesion.html.twig",["ladhesion"=>$listeAdhesion]);
+  return $this->container->view->render($response, "checkJukebox.html.twig");
     }
         public function checkReclam($request, $response){
-  return $this->container->view->render($response, "utilisateur/Listeadhesion.html.twig",["ladhesion"=>$listeAdhesion]);
+  return $this->container->view->render($response, "checkReclam.html.twig");
     }
 
 }
