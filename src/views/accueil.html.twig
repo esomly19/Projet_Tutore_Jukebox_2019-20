@@ -3,9 +3,22 @@
         {% endblock %}
 
 <p> accueil<p>
+        <div class="main">
+            <div class="sub-main">
+                 <h1>Gestion des usagers:</h1>
+           <a href="{{ path_for('createPlaylist')}}">  <button id="bu1" class="button" >createPlaylist</button></a>
+            </div>
+               <div class="sub-main">
+            <h1>Gestion des documents :</h1>
+           <a href="{{ path_for('checkPlaylist')}}"> <button  id="bu3" class="button">checkPlaylist</button></a>
+            </div>
+            <div class="sub-main">
+            <h1>Gestion des emprunts:</h1>
+            <a href="{{ path_for('checkJukebox')}}"><button  id="bu2"  class="button">checkJukebox</button></a>
+            </div>
+            <div class="sub-main">
+            <h1>Gestion des retours:</h1>
+           <a href="{{ path_for('checkReclam')}}"> <button  id="bu3" class="button">checkReclam</button></a>
+            </div>
 
-
-<button type="button" class="btn btn-primary">1</button>
-<button type="button" class="btn btn-primary">2</button>
-<button type="button" class="btn btn-primary">3</button>
-<button type="button" class="btn btn-primary">3</button>
+        </div>
