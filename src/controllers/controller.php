@@ -15,9 +15,7 @@ class controller{
         public function createPlaylist($request, $response){
   return $this->container->view->render($response, "createPlaylist.html.twig");
     }
-        public function checkJukebox($request, $response){
-  return $this->container->view->render($response, "checkJukebox.html.twig");
-    }
+       
         public function checkReclam($request, $response){
   return $this->container->view->render($response, "checkReclam.html.twig");
     }

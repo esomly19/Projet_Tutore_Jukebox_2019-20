@@ -11,7 +11,8 @@ class jukeboxController{
 
     public function showJukebox($container)
     {
-        
+                 $juke = Jukebox::all();
+  return $this->container->view->render($response, "checkJukebox.html.twig", ['juke'=>$juke]);
     }
    
 

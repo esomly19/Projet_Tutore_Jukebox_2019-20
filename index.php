@@ -46,7 +46,7 @@ $app->get('/', function(Request $request, Response $response, $args){
 
 $app->get('/createPlaylist', "\\app\\controllers\\controller:createPlaylist")->setName('createPlaylist');
 $app->get('/checkPlaylist', "\\app\\controllers\\controller:checkPlaylist")->setName('checkPlaylist');
-$app->get('/checkJukebox', "\\app\\controllers\\controller:checkJukebox")->setName('checkJukebox');
+$app->get('/checkJukebox', "\\app\\controllers\\jukeboxController:showJukebox")->setName('checkJukebox');
 $app->get('/checkReclam', "\\app\\controllers\\controller:checkReclam")->setName('checkReclam');
 
 
