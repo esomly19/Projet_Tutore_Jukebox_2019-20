@@ -11,4 +11,7 @@ class musique extends \Illuminate\Database\Eloquent\Model
     public $timestamps = false;
     protected $fillable = ['titre', 'genre', 'description', 'studio', 'album', 'artiste','chemin','ig_image'];
 
+    public function Playlist() {
+        return $this->belongsToMany('app\models\Playlist');
+    }
 }

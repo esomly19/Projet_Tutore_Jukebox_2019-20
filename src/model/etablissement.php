@@ -1,14 +1,19 @@
 <?php
 
-namespace app\models;
-use Illuminate\Database\Eloquent\SoftDeletes;
+namespace App\models;
 
-class playlist extends \Illuminate\Database\Eloquent\Model
+
+class etablissement extends \Illuminate\Database\Eloquent\Model
 {
-    use SoftDeletes;
-    protected $table = "playlist";
+    protected $table = "etablissement";
     protected $primaryKey = "id";
     public $timestamps = false;
-    protected $fillable = ['titre', 'id_proprietaire','nom', 'adresse'];
 
+    public function Proprietaire() {
+        return $this->belongsTo('app\models\Proprietaire');
+    }
+
+    public function jukebox() {
+        return $this->hasMany('app\models\Jukebox');
+    }
 }

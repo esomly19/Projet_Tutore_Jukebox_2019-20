@@ -10,5 +10,8 @@ class proprietaire extends \Illuminate\Database\Eloquent\Model
     protected $primaryKey = "id";
     public $timestamps = false;
     protected $fillable = ['nom', 'prenom', 'telephone', 'mail', 'adresse'];
-
+   
+    public function Etablissement() {
+        return $this->hasMany('app\models\Musique');
+    }
 }
