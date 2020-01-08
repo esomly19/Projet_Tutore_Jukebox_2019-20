@@ -9,7 +9,7 @@ class jukeboxController{
         $this->container = $container;
     }
 
-    public function showJukebox($container)
+    public function showJukebox($request, $response)
     {
                  $juke = Jukebox::all();
   return $this->container->view->render($response, "checkJukebox.html.twig", ['juke'=>$juke]);
