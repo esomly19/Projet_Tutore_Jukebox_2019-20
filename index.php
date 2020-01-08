@@ -44,10 +44,10 @@ $app->get('/', function(Request $request, Response $response, $args){
     return $this->view->render($response, 'accueil.html.twig');
 })->setName('accueil');;
 
-$app->get('/createPlaylist', "\\app\\Controllers\\controller:createPlaylist")->setName('createPlaylist');
-$app->get('/checkPlaylist', "\\app\\Controllers\\controller:checkPlaylist")->setName('checkPlaylist');
-$app->get('/checkJukebox', "\\app\\Controllers\\controller:checkJukebox")->setName('checkJukebox');
-$app->get('/checkReclam', "\\app\\Controllers\\controller:checkReclam")->setName('checkReclam');
+$app->get('/createPlaylist', "\\app\\controllers\\controller:createPlaylist")->setName('createPlaylist');
+$app->get('/checkPlaylist', "\\app\\controllers\\controller:checkPlaylist")->setName('checkPlaylist');
+$app->get('/checkJukebox', "\\app\\controllers\\controller:checkJukebox")->setName('checkJukebox');
+$app->get('/checkReclam', "\\app\\controllers\\controller:checkReclam")->setName('checkReclam');
 
 
 try {
