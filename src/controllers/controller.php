@@ -2,13 +2,15 @@
 
 namespace app\Controllers;
 
+use app\models\Musique;
 
 class controller{
     public function __construct($container){
         $this->container = $container;
     }
     public function checkPlaylist($request, $response){
-  return $this->container->view->render($response, "checkPlaylist.html.twig");
+           $lanime = Musique::all();
+  return $this->container->view->render($response, "checkPlaylist.html.twig", ['lanime'=>$lanime]);
     }
         public function createPlaylist($request, $response){
   return $this->container->view->render($response, "createPlaylist.html.twig");

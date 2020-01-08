@@ -3,7 +3,7 @@
 namespace App\models;
 
 
-class etablissement extends \Illuminate\Database\Eloquent\Model
+class Etablissement extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = "etablissement";
     protected $primaryKey = "id";
