@@ -1,2 +1,3 @@
 .autogit
 /vendor
+/application-client/node-modules
