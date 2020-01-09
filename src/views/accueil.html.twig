@@ -1,0 +1,24 @@
+  {% block stylesheets %}
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        {% endblock %}
+
+<p> accueil<p>
+        <div class="main">
+            <div class="sub-main">
+           
+           <a href="{{ path_for('createPlaylist')}}">  <button id="bu1" class="button" >createPlaylist</button></a>
+            </div>
+               <div class="sub-main">
+     
+           <a href="{{ path_for('checkPlaylist')}}"> <button  id="bu3" class="button">checkPlaylist</button></a>
+            </div>
+            <div class="sub-main">
+         
+            <a href="{{ path_for('checkJukebox')}}"><button  id="bu2"  class="button">checkJukebox</button></a>
+            </div>
+            <div class="sub-main">
+     
+           <a href="{{ path_for('checkReclam')}}"> <button  id="bu3" class="button">checkReclam</button></a>
+            </div>
+
+        </div>

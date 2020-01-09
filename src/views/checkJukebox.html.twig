@@ -1,0 +1,25 @@
+  {% block stylesheets %}
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        {% endblock %}
+        <table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Nom du propriétaire</th>
+      <th scope="col">Adresse du propriétaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+  {% for juke in juke %}
+ 
+    <td>{{juke.nom}}<td>
+     <td>{{juke.etat}}<td>
+      <td>{{juke.id_etablissement}}<td>
+       <td>{{juke.id_etablissement}}<td>
+   {% endfor %}
+    </tr>
+  </tbody>
+</table>
