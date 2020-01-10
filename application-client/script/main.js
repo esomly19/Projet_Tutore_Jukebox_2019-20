@@ -18,22 +18,18 @@ function sendXhr(urlSend) {
 function showMusique(musique) {
 
     let content = "";
-    musique.forEach(msq => content += `<p>${msq.titre}</p>`)
-    console.log(musique)
-    console.log(content)
+    musique.forEach(msq => content += `<div class="card">
+            <form action="https://salty-tundra-73298.herokuapp.com/ajouterMusique" method="post">
+            <div class="form-group">
+                <label class="card-title">${msq.titre}</label>
+                <input type="hidden" value="${msq.chemin}" name="id_musique" >
+                <input type="submit" value="ajouter" class="btn btn-primary">
+            </div>
+            </form>
+            </div>`)
     $("#playlist").html(content);
 
 }
-
-/**Appelé lorsque le DOM est chargé
-document.addEventListener("DOMContentLoaded", function () {
-    let path = window.location.pathname.split('/');
-    console.log(path)
-    let play = sendXhr("https://projetjukebox.herokuapp.com/playlist/1")
-    console.log("coucou")
-    console.log(play.data)
-});*/
-
 $(document).ready( () => {
     let urlPlaylist = "https://projetjukebox.herokuapp.com/playlist/1";
     sendXhr(urlPlaylist).then(function (data) {

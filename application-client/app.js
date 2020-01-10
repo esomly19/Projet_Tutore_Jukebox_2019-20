@@ -25,24 +25,13 @@ app.get('/', function(req, res) {
 });
 
 //permet de renvoyer la playlist d'un jukebox
-app.get('/playlist/:id', function (req, res) {
+app.get('/playlist/:id', (req, res) => {
+
     let requete = 'SELECT * FROM public.appartient inner join public.musique on musique.id = appartient.id_musique where id_playlist='+req.params.id+';'
-
-    let listeMusique = []
-    await client.query(requete, (err, res) => {
-        let listeMusique = [];
+    client.query(requete, (err, ress) => {
         if (err) throw err;
-        for (let row of res.rows) {
-            listeMusique.push(JSON.stringify(row))
-
-        }
-
-        return listeMusique
-
+        res.send(ress.rows)
     });
-
-    console.log(result.fields)
-    client.end()
 
 })
 

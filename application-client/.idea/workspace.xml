@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c771c9-8a79-4bb1-9b72-3773539c122b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,8 @@
       <workItem from="1578472929926" duration="2426000" />
       <workItem from="1578483883602" duration="15152000" />
       <workItem from="1578563070735" duration="3096000" />
-      <workItem from="1578574407216" duration="2397000" />
+      <workItem from="1578574407216" duration="9388000" />
+      <workItem from="1578646752896" duration="2094000" />
     </task>
     <servers />
   </component>
@@ -146,5 +146,9 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578564438584" />
+    <state x="2536" y="240" key="run.anything.popup" timestamp="1578648822898">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="240" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578648822898" />
   </component>
 </project>
