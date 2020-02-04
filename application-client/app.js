@@ -5,7 +5,7 @@ let io = require('socket.io')(server);
 let bodyParser = require('body-parser');
 
 
-app.use(express.static(__dirname + '/script'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
@@ -31,6 +31,7 @@ app.get('/playlist/:id', (req, res) => {
     client.query(requete, (err, ress) => {
         if (err) throw err;
         res.send(ress.rows)
+
     });
 
 })
