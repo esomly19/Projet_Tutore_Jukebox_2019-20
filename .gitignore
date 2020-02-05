@@ -1,3 +1,5 @@
 .autogit
 /vendor
 /application-client/node-modules
+/jukebox/node-modules
+node-modules
