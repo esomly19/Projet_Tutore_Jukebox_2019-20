@@ -2,6 +2,7 @@ const playlist = []
 let pseudo = ""
 let id = ""
 let socket;
+let QRCode = require('qrcode')
 
 //envoie une requête asynchrone XHR
 //params : urlSend = URL de l'api, success = fonction a appeler en cas de succés (callback)
@@ -161,8 +162,11 @@ function generateUUID()
 return ""+uuid;
 }
 
+function scanQrCode() {
+    
+}
+
 
 $(document).ready( () => {
     askPseudo()
-    
 })
