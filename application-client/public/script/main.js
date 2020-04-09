@@ -1,8 +1,8 @@
 const playlist = []
 let pseudo = ""
 let id = ""
+let token = ""
 let socket;
-let QRCode = require('qrcode')
 
 //envoie une requête asynchrone XHR
 //params : urlSend = URL de l'api, success = fonction a appeler en cas de succés (callback)
@@ -27,12 +27,12 @@ function showMusique(musique) {
     <div class="card mb-3">
         <div class="row no-gutters">
         <div class="col-md-2">
-            <img src="${msq["Cover_album_big"]}" class="card-img" alt="...">
+            <img src="${msq["albumPic"]}" class="card-img" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h5 class="card-title">${msq["Titre"]}</h5>
-            <button class="btn btn-primary" text="ajouter" id="${msq["Titre_album"]}" onclick="ajouterMusique('${msq["Titre_album"].replace(/\n|\r/g,'').replace("'", "")}, ${msq["Titre"]}, ${msq["Cover_album_big"]}')" onclick="this.disabled = 'disabled'">ajouter</button>
+            <h5 class="card-title">${msq["titre"]}</h5>
+            <button class="btn btn-primary" text="ajouter" id="${msq["url"]}" onclick="ajouterMusique('${msq["url"].replace(/\n|\r/g,'').replace("'", "")}, ${msq["titre"]}, ${msq["albumPic"]}')" onclick="this.disabled = 'disabled'">ajouter</button>
             </div>
         </div>
         </div>
@@ -55,7 +55,9 @@ function ajouterMusique(musique, titre, image) {
                 "musique": musique,
                 "titre": titre,
                 "image": image,
-                "pseudo": pseudo
+                "pseudo": pseudo,
+                "token": token
+                
             },
         }).then(function(data) {
            if(data === "true") {
@@ -77,7 +79,14 @@ function askPseudo() {
     $("#playlist").html(content);
 }
 
+
+
+
 function connection() {
+    let tab = window.location.href.split("/")
+    token = tab[3]
+    let room = token
+    console.log(token)
     socket = io.connect("https://projetjukebox.herokuapp.com/")
     pseudo = document.getElementById("pseudo").value
     let content = `
@@ -96,14 +105,14 @@ function connection() {
 
     id = generateUUID()
     socket.on('connect', function() {
-        alert('marche')
         socket.emit('user', {'pseudo': pseudo, 'id_user': id})
+        socket.emit('room', room)
         $.notify(pseudo+" vous êtes avec nous !", "success")
 
         socket.on('NewMusique', function (data) {
             data = JSON.stringify(Object.values(data)).replace("]",'').replace("[",'').replace('"', '').split(',')
             $.notify(data[1]+" est ajouté dans la file grace a "+data[3], "success")
-            document.getElementById("nbFile").innerText = data[4].replace('"', "");
+            document.getElementById("nbFile").innerText = data[4].replace('"', "").replace("'", "");
             
         })
         socket.on('currentMusique', function(data) {
@@ -115,32 +124,14 @@ function connection() {
     })
 
     document.getElementById("nav").innerHTML = "Jukebox - "+pseudo
-    let urlPlaylist = "https://projetjukebox.herokuapp.com/playlist/1";
+    let urlPlaylist = "https://jukeboxapimusic.herokuapp.com/playlist?token=1"
+    if(token !== null) {
+        urlPlaylist = "https://jukeboxapimusic.herokuapp.com/playlist?token="+token;
+    }
+    
     sendXhr(urlPlaylist).then(function (data) {
-        musiqueInformation(data)
+        showMusique(data)
     })
-}
-
-function musiqueInformation(data) {
-    data.forEach(musique =>
-        $.ajax({
-            url: "https://jukebox-admin.herokuapp.com/getMusic",
-            method: 'GET',
-            headers: {
-
-
-                "Musicname": musique.titre,
-                "chemin": musique.chemin
-            }
-            }).then(function(data) {
-                let jData = JSON.parse(data)
-                jData['Titre_album'] = musique.chemin
-                jData['Titre'] = jData['Titre'].replace("'", " ").replace("n'", "n")
-                playlist.push(jData)
-            }).then(function() {
-                showMusique(playlist)
-            })
-    )        
 }
 
 function generateUUID()
@@ -160,10 +151,6 @@ function generateUUID()
 	});
 
 return ""+uuid;
-}
-
-function scanQrCode() {
-    
 }
 
 
